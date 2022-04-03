@@ -1,22 +1,42 @@
+
 {
+  "root": true,
   "env": {
     "browser": true,
-    "es2021": true
+    "es6": true,
+    "node": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "eslint:recommended",
-    "google",
-    "next/core-web-vitals"
-  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": "./tsconfig.json", // tells parser relative path of tsconfig.json
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+
+  // all plugins (eslint-plugin-xxx) go here:
+  "plugins": [
+    "@typescript-eslint",
+    "@next/eslint-plugin-next" // https://github.com/vercel/next.js/blob/canary/packages/eslint-plugin-next/lib/index.js
+  ],
+
+  // all configs (eslint-config-xxx) go here:
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking", // contains rules that specifically require type information
+    "plugin:@next/next/recommended",
+    "next", // https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/package.json
+    "next/core-web-vitals"
+  ],
   "rules": {
     "indent": ["off", 2],
     "no-unused-vars": [
@@ -45,7 +65,7 @@
     "max-len": ["off", { "code": 180 }],
     "arrow-parens": ["off", "always"],
     "comma-dangle": ["off", "never"],
-    "quotes": ["off", "single"],
+    "quotes": ["error", "single"],
     "operator-linebreak": ["off", "after"],
     "react/prop-types": "off",
     "brace-style": "off",

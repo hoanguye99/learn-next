@@ -65,9 +65,9 @@
     "max-len": ["off", { "code": 180 }],
     "arrow-parens": ["off", "always"],
     "comma-dangle": ["off", "never"],
-    "quotes": ["error", "single"],
+    "quotes": ["off", "single"],
     "operator-linebreak": ["off", "after"],
-    "react/prop-types": "off",
+    // "react/prop-types": "off",
     "brace-style": "off",
     "no-trailing-spaces": "off",
     "block-spacing": "off"

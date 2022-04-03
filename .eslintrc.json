@@ -1,3 +1,55 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "google",
+    "next/core-web-vitals"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "indent": ["off", 2],
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "require-jsdoc": [
+      "off",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+        }
+      }
+    ],
+    "object-curly-spacing": ["off", "never"],
+    "eol-last": ["off", "always"],
+    "linebreak-style": ["off", "unix"],
+    "max-len": ["off", { "code": 180 }],
+    "arrow-parens": ["off", "always"],
+    "comma-dangle": ["off", "never"],
+    "quotes": ["off", "single"],
+    "operator-linebreak": ["off", "after"],
+    "react/prop-types": "off",
+    "brace-style": "off",
+    "no-trailing-spaces": "off",
+    "block-spacing": "off"
+  }
 }
